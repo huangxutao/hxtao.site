@@ -1,0 +1,29 @@
+{
+  "name": "hxtao.site",
+  "version": "1.0.0",
+  "description": "hxtao.site页面开发管理",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node test.js",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangxutao/hxtao.site.git"
+  },
+  "keywords": [
+    "html",
+    "javascript",
+    "nodejs",
+    "css"
+  ],
+  "author": "huangxutao <h784124804@gmail.com> (https://hxtao.site/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huangxutao/hxtao.site/issues"
+  },
+  "homepage": "https://github.com/huangxutao/hxtao.site#readme",
+  "devDependencies": {
+    "browser-sync": "2.18.8"
+  }
+}
