@@ -4,8 +4,8 @@
   "description": "hxtao.site页面开发管理",
   "main": "index.js",
   "scripts": {
-    "dev": "node test.js",
-    "test": "npm test"
+    "dev": "browser-sync start --server --files '**'",
+    "autoprefixer": "postcss -u autoprefixer --no-map --autoprefixer.browsers '> 5%, ie 9' -r "
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/huangxutao/hxtao.site#readme",
   "devDependencies": {
-    "browser-sync": "2.18.8"
+    "autoprefixer": "6.7.5",
+    "browser-sync": "2.18.8",
+    "postcss-cli": "3.0.0-beta"
   }
 }
