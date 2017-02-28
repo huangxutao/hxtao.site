@@ -3,14 +3,7 @@ html,body{
   width: 100%;
   height: 100%;
   padding: 0;
-  font: 14px/1 cursive;
-}
-
-@font-face {
-  font-family: 'Barrio';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/Barrio-Regular.ttf) format("ttf");
+  font: 14px/1 serif, sans-serif, monospace;
 }
 
 a{
@@ -24,16 +17,13 @@ a{
   height: 100%;
   background: #333;
   overflow: hidden;
-  perspective: 112rem;
 }
 
 .wrapper .main{
   position: relative;
   width: 100%;
   height: 100%;
-  background: #fff;
-  transition: transform .6s ease;
-  transform-origin: 0 50%;
+  background: #fafafa;
 }
 
 .main .top{
@@ -42,21 +32,28 @@ a{
   width: 100%;
 }
 
+/* github 小图标 */
 .main .top a{
   display: inline-block;
   padding: 1.2rem;
-  transform: rotate(-180deg) translateY(30%);
+  -webkit-transform: rotate(-180deg) translateY(30%);
+          transform: rotate(-180deg) translateY(30%);
+  -webkit-transition: -webkit-transform .6s ease;
+  transition: -webkit-transform .6s ease;
   transition: transform .6s ease;
+  transition: transform .6s ease, -webkit-transform .6s ease;
 }
 
 .main .top a:hover{
-  transform: rotate(0) translateY(0);
+  -webkit-transform: rotate(0) translateY(0);
+          transform: rotate(0) translateY(0);
 }
 
 .main .top a i{
   font-size: 2rem;
 }
 
+/* Hello ~ <./> */
 .main .box{
   position: absolute;
   top: 0;
@@ -65,8 +62,12 @@ a{
   left: 0;
   margin: auto;
   width: 36rem;
+  max-width: 100%;
   height: 16rem;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: default;
 }
 
@@ -80,8 +81,8 @@ a{
 }
 
 .main .box p.hello span{
-  color: #aaa;
-  font-family: cursive;
+  color: #d5d5d5;
+  font-family: serif, sans-serif, monospace;
   line-height: 1rem;
   vertical-align: bottom;
 }
@@ -90,49 +91,80 @@ a{
   text-align: right;
 }
 
-/*侧栏*/
+.main .mobile{
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6rem;
+  text-align: center;
+}
+
+.main .mobile a{
+  display: inline-block;
+  padding: .24rem;
+}
+
+.main .mobile a i{
+  font-size: 1.2rem;
+}
+
+/* 侧栏 */
 .wrapper .aside{
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
-  width: 4rem;
+  width: 18rem;
   z-index: 999;
-  background: goldenrod;
+  -webkit-transform: translateX(14rem);
+          transform: translateX(14rem);
+  -webkit-transition: -webkit-transform .6s ease;
+  transition: -webkit-transform .6s ease;
+  transition: transform .6s ease;
+  transition: transform .6s ease, -webkit-transform .6s ease;
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
 }
 
-.wrapper .aside:before, .wrapper .aside:after{
+.wrapper .aside:hover{
+  -webkit-transform: translate(0);
+          transform: translate(0);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.aside .hi{
   position: absolute;
-  right: 0;
-  left: 0;
-  content: "";
-  margin: auto;
-  width: .2rem;
-  height: 40%;
-  background: #333;
-  transition: .6s ease;
-}
-
-.wrapper .aside:before{
   top: 0;
-}
-
-.wrapper .aside:after{
   bottom: 0;
+  left: 0;
+  width: 4rem;
 }
 
-.wrapper .aside p{
-  position: relative;
-  margin: 0;
-  height: 100%;
-  writing-mode: vertical-rl;
+.aside .hi p{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 8rem;
+  color: #d5d5d5;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
   letter-spacing: .1rem;
-  text-align: center;
   line-height: 4rem;
+  text-align: center;
   cursor: pointer;
+  background: #fafafa;
+  z-index: 998;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
 }
 
-.wrapper .aside p:after{
+.aside .hi p:after{
   position: absolute;
   top: 0;
   right: 0;
@@ -141,13 +173,212 @@ a{
   margin: auto;
   width: 20%;
   height: .1rem;
-  background: #333;
+  background: #d5d5d5;
+  -webkit-transition: -webkit-transform .32s ease;
+  transition: -webkit-transform .32s ease;
+  transition: transform .32s ease;
+  transition: transform .32s ease, -webkit-transform .32s ease;
 }
 
-.wrapper .aside:hover:before,.wrapper .aside:hover:after{
+.aside:hover .hi p{
+  opacity: 0;
+  -webkit-transform: scale(.8);
+          transform: scale(.8);
+}
+
+.aside:hover .hi p:after{
+  width: 0;
+}
+
+.aside .hi p span{
+  display: inline-block;
+  -webkit-animation: swing 2.4s ease infinite;
+          animation: swing 2.4s ease infinite;
+}
+
+@-webkit-keyframes swing{
+  0%, 20%, 40%, 100%{
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  10%{
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  30%{
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+}
+
+@keyframes swing{
+  0%, 20%, 40%, 100%{
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  10%{
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  30%{
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+}
+
+.aside .hi span.line{
+  position: absolute;
+  right: 0;
+  left: 0;
+  content: "";
+  margin: auto;
+  width: .2rem;
+  height: 40%;
+  background: #d5d5d5;
+  -webkit-transition: .6s ease;
+  transition: .6s ease;
+}
+
+.aside .hi span.top{
+  top: 0;
+}
+
+.aside .hi span.bottom{
+  bottom: 0;
+}
+
+.aside:hover .hi .line{
   height: 0;
 }
 
-.wrapper .aside:hover + .main{
-  transform: rotateY(25deg)
+.aside .lists{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 4rem;
+  background: #fafafa;
+}
+
+.aside .lists ul{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.2rem;
+}
+
+.aside .lists ul li{
+  list-style: none;
+  color: #bbb;
+  font-size: 1.4rem;
+  text-align: right;
+  text-transform: capitalize;
+  line-height: 2.4rem;
+  opacity: 0;
+  -webkit-transform: translateY(2rem);
+          transform: translateY(2rem);
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+}
+
+.aside:hover .lists ul li{
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.aside:hover .lists ul li:nth-child(1){
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+.aside:hover .lists ul li:nth-child(2){
+  -webkit-transition-delay: .8s;
+          transition-delay: .8s;
+}
+
+.aside:hover .lists ul li:nth-child(3){
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+.aside:hover .lists ul li:nth-child(4){
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
+}
+
+.aside:hover .lists ul li:nth-child(5){
+  -webkit-transition-delay: 1.4s;
+          transition-delay: 1.4s;
+}
+
+.aside .lists ul li a{
+  position: relative;
+  display: inline-block;
+  padding-right: 1rem;
+  color: #d5d5d5;
+  -webkit-transition: all .32s ease;
+  transition: all .32s ease;
+}
+
+.aside .lists ul li a:hover{
+  color: #333;
+}
+
+.aside .lists ul li a:after{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  width: .2rem;
+  height: 0;
+  background: #666;
+  -webkit-transition: all .32s ease;
+  transition: all .32s ease;
+}
+
+.aside .lists ul li a:hover:after{
+  height: 100%;
+}
+
+@media only screen and (max-width: 1024px){
+  .main .box{
+    margin-top: 40%;
+  }
+
+  .main .box p{
+    text-align: center;
+    font-size: 8rem;
+  }
+
+  .main .box p.tag{
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .main .box p span{
+    display: none;
+  }
+
+  .main .mobile{
+    display: block;
+  }
+
+  .aside{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 640px){
+  .main .box{
+    margin-top: 30%;
+  }
+
+  .main .box p{
+    font-size: 3.6rem;
+  }
 }
