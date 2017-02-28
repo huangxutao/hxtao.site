@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+✄     _          _              
+✄    | |__ __  _| |_ __ _  ___  
+✄    | '_ \\ \/ / __/ _` |/ _ \ 
+✄    | | | |>  <| || (_| | (_) |
+✄    |_| |_/_/\_\\__\__,_|\___/ 
+✄                           
+✄
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>站点主页历览</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #dfdfdf;
+    overflow: hidden;
+  }
+
+  h1, h2, h3{
+    font-weight: normal;
+  }
+
+  a{
+    color: #3498DB;
+  }
+
+  .box{
+    margin: 30px auto;
+    padding: 0 40px;
+    width: 80%;
+    max-width: 980px;
+    min-width: 220px;
+    background: #fff;
+    box-shadow: 0 2px 6px #aaa;
+  }
+
+  .box .header{
+    height: 65px;
+    line-height: 92px;
+    -webkit-user-select: none;
+    cursor: default;
+    border-bottom: 2px solid #938e8c;
+  }
+
+  .box .header:after{
+    display: block;
+    content: "";
+    clear: both;
+  }
+
+  .box .header h1{
+    float: left;
+    margin: 0;
+    height: 100%;
+    padding: 0 32px 0 12px;;
+    color: #fff;
+    font-size: 24px;
+    background: #d45d5c;
+  }
+
+  .box .header h2{
+    float: right;
+    height: 100%;
+    font-size: 12px;
+  }
+
+  .box .header h2 a{
+    color: #d45d5c;
+  }
+
+  .box .row{
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+
+  .box .row h1{
+    color: rgb(204, 128, 145);
+    font-size: 18px;
+  }
+
+  .box .row p{
+    position: relative;
+    display: block;
+    height: 36px;
+    color: #666;
+    line-height: 36px;
+    text-indent: 24px;
+    text-decoration: none;
+    border-bottom: 1px dashed #999;
+  }
+
+  .box .row p:after{
+    position: absolute;
+    top: 14px;
+    left: 8px;
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: rgb(17, 69, 107);
+  }
+
+  .box .row p a{
+    float: right;
+    margin: 0 12px;
+  }
+
+  .footer{
+    padding: 2px 0 30px;
+    text-align: right;
+    color: #d45d5c;
+    font-size: 12px;
+    font-style: italic;
+    border-top: 1px solid #938e8c;
+  }
+</style>
+<body>
+  <div class="box">
+    <div class="header"><h1>History Lists</h1><h2><a href="https://hxtao.site/">https://hxtao.site</a></h2></div>
+    <div class="row">
+      <div class="lists"></div>
+    </div>
+    <div class="footer">copy rights © hxtao</div>
+  </div>
+  <script>
+    ;(function() {
+      function createPage(data) {
+        var data = data || [];
+        var list = document.querySelector('.lists');
+        var prefix_url = 'https://github.com/huangxutao/hxtao.site/tree/master/';
+        var tmp = '';
+
+        for(var i = 0, len = data.length; i < len; i++) {
+          tmp += '<p>' + data[i].sub + '<a href=\"' + data[i].demo + '">preview</a>' + '<a href=\"' + prefix_url +''+ data[i].source +  '\">source</a></p>';
+        }
+
+        return list.innerHTML = tmp;
+      }
+
+      var data = [
+        {
+          sub: 'hexo 静态博客设计(兼站点主页了)',
+          source: '0',
+          demo: '0'
+        },
+        {
+          sub: '带点 Material Design 风格的站点主页 ^_^',
+          source: '1',
+          demo: '1'
+        },
+        {
+          sub: 'Full Screen 风格',
+          source: '2',
+          demo: '2'
+        },
+        {
+          sub: '极简 Style',
+          source: '3',
+          demo: '3'
+        }
+      ];
+
+      createPage(data);
+
+    }());
+  </script>
+</body>
+</html>
