@@ -6,4 +6,4 @@
 
 ## 快照
 
-![](./source/images/snapshot.png)
+![](./source/images/snapshot-pc.png)
