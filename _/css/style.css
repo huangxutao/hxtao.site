@@ -25,12 +25,12 @@ html,body{
 }
 
 .wrapper:before{
-  transform: rotate(4deg);
+  transform: rotate(4deg) translateY(4rem);
   transform-origin: top left;
 }
 
 .wrapper:after{
-  transform: rotate(-4deg);
+  transform: rotate(-4deg) translateY(4rem);
   transform-origin: top right;
 }
 
@@ -53,7 +53,6 @@ html,body{
   color: #fff;
   text-align: center;
   background: rgba(121, 85, 72, 0.47);
-  /*background: rgba(158, 158, 158, 0.57);*/
 }
 
 .wrapper .words h1{
@@ -72,6 +71,7 @@ html,body{
 }
 
 .main{
+  margin-top: -4rem;
   padding-bottom: 6rem;
   width: 100%;
   background: #fafafa;
@@ -79,35 +79,79 @@ html,body{
 
 .main .content{
   margin: 0 auto;
+  padding: 0 2rem;
   width: 100%;
   max-width: 66rem;
-  height: 44rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .main .content .row{
-  padding: 6rem 0;
   position: relative;
+  margin: 4rem auto;
+  padding: 6rem 0;
+  font-family: monospace;
+  transition: all .6s ease;
+  /*transition-delay: 1s;*/
+}
+
+.main .content .row.hide{
+  opacity: 0;
+  transform: translateY(4rem);
 }
 
 .main .content .row:after{
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.main .content .row .description{
   position: absolute;
-  top: 0;
+  top: -4rem;
   right: 0;
-  content: "0";
+  text-align: right;
+}
+
+.main .content .row:nth-child(2n) .description{
+  left: 0;
+  text-align: left;
+}
+
+.main .content .row .description h1{
   color: #d5d5d5;
   font-size: 8rem;
+}
+
+.main .content .row:nth-child(2n) .description h1{
+  left: 0;
+}
+
+.main .content .row .description p{
+  opacity: 0;
+  color: #666;
+  transition: opacity .6s ease;
+}
+
+.main .content .row:hover .description p{
+  opacity: 1;
 }
 
 .main .content .row .img{
   position: relative;
   width: 36rem;
   box-shadow: 0 0 .2rem #aaa;
+  overflow: hidden;
   border-radius: .2rem;
   transition: all .6s ease;
 }
 
-.main .content .row .img:hover{
-  box-shadow: 0 0 .6rem #aaa;
+.main .content .row:nth-child(2n) .img{
+  float: right;
+}
+
+.main .content .row:hover .img{
+  box-shadow: 0 0 1rem #aaa;
 }
 
 .main .content .row .img img{

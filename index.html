@@ -14,14 +14,50 @@
     </div>
   </div>
   <div class="main">
-    <div class="content">
-      <div class="row">
-        <div class="img"><img src="_/images/0.png" alt=""></div>
-      </div>
-    </div>
+    <div class="content"></div>
   </div>
   <div class="footer">
     <p>© 2017 <a href="https://github.com/huangxutao">hxtao</a> </p>
   </div>
+  <script src="_/js/script.js"></script>
+  <script>
+    ;(function() {
+      var data = [
+        {
+          num: '03',
+          desc: '极简 Style'
+        },
+        {
+          num: '02',
+          desc: 'Full Screen 风格'
+        },
+        {
+          num: '01',
+          desc: '带点 Material Design 风格的站点主页 ^_^)'
+        },
+        {
+          num: '00',
+          desc: 'hexo 静态博客设计(兼站点主页了)'
+        }
+      ]
+
+      tools.createPage(data);
+
+      var row = document.querySelectorAll('.row');
+      
+      row[0].className = 'row';
+
+      document.addEventListener("scroll", function() {
+
+        for(var i = 0, len = row.length; i < len; i++) {
+          if(tools.isInView(row[i], true)) {
+            row[i].className = "row";
+          } 
+        }
+
+      }, false);
+  
+    }());
+  </script>
 </body>
 </html>
