@@ -4,6 +4,8 @@
 
 ## 快照
 
+[Preview](http://hexo.hxtao.site/hxtao.site/02/)
+
 PC：
 
 ![pc](./source/images/snapshot-pc.png)
